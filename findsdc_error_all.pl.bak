@@ -1,0 +1,59 @@
+#!/usr/bin/perl -w
+$tag = "$ARGV[0]";
+$src_dir = "$ARGV[1]";
+$tmp_file = "$tag.sdc.error";
+$tmp_file1 = "$tag.port.error";
+$tmp_file2 = "$tag.all.error";
+$dst = "$tag.sdc.error.final";
+$dst1 = "$tag.port.error.final";
+$dst2 = "$tag.all.error.final";
+if (-e "$src_dir/rpts/DgSynthesize/DgSynthesize.sourceSdc.rpt.gz") {
+ open SRC, "gzip -cd $src_dir/rpts/DgSynthesize/DgSynthesize.sourceSdc.rpt.gz |";
+} else {
+ open SRC, "$src_dir/rpts/DgSynthesize/DgSynthesize.sourceSdc.rpt";
+}
+open TMP, "> ./sdc_all/$tmp_file";
+open TMP_PORT, "> ./sdc_all/$tmp_file1";
+open TMP_ALL, "> ./sdc_all/$tmp_file2";
+$i = 0;
+while (<SRC>) {
+ chomp;
+ $i++;
+ if (/Warning: Can't find clock '(.*)' in design/) {
+  print TMP "$1\n";
+  print TMP_ALL "line $i: $_\n";
+ } elsif (/Warning: Can't find port '(.*)' in design/) {
+  print TMP_PORT "$1\n";
+  print TMP_ALL "line $i: $_\n";
+ } elsif (/Warning: Can't find/) {
+  print TMP_ALL "line $i: $_\n";
+}
+}
+close SRC;
+close TMP;
+close TMP_PORT;
+close TMP_ALL;
+&remove_rebundant("./sdc_all/$tmp_file", "./sdc_all/$dst");
+&remove_rebundant("./sdc_all/$tmp_file1", "./sdc_all/$dst1");
+&remove_rebundant("./sdc_all/$tmp_file2", "./sdc_all/$dst2");
+
+unlink "./sdc_all/$tmp_file", "./sdc_all/$tmp_file1", "./sdc_all/$tmp_file2";
+
+
+sub remove_rebundant {
+open SRC, "./$_[0]" or die; #srouce file before rebundant.
+open DST, "> ./$_[1]" or die; #dst file after rebundant.
+%ha = ();
+while (<SRC>) {
+  chomp;
+  $ha{$_} = 1;
+}
+
+@clk_group= sort keys %ha;
+foreach  (@clk_group) {
+ print DST "$_\n";
+}
+
+close SRC;
+close DST;
+}

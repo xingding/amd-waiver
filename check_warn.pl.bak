@@ -1,0 +1,51 @@
+#!/usr/bin/perl -w
+$tile_path = $ARGV[1];
+$tile_name = $ARGV[0];
+##start run
+system "cp -rf $tile_path/rpts/DgSynthesize/DgSynthesize_post.dat ./syn_pw";
+system "cp -rf $tile_path/rpts/DgSynthesize/DgSynthesize.postwaived.rpt.gz ./syn_pw/$tile_name.postwaived.rpt.gz";
+open SRC, "./syn_pw/DgSynthesize_post.dat" or die;
+open DST, "> ./syn_pw/$tile_name.err" or die;
+open DST1, ">> ./syn_pw/err.list" or die;
+while (<SRC>) {
+ chomp;
+ if (/Stat\.waived.*100.00%/) {
+ print "match\n";
+ $line = $_;
+ $line =~ s/\s+/,/g;
+ print DST "$line\n";
+ } elsif (/Stat\.waived:\s+(\S+)\s+(\S+)/) {
+ print "match...\n";
+ $line = $_;
+ $e_w = $1;
+ $name = $2;
+ $line =~ s/\s+/,/g;
+ print DST "$line\n";
+ print DST1 "$e_w,$name\n";
+ }
+}
+
+close SRC;
+close DST;
+close DST1;
+
+&remove_rebundant("./syn_pw/err.list", "./syn_pw/err.list.csv");
+
+sub remove_rebundant {
+open SRC, "./$_[0]" or die; #srouce file before rebundant.
+open DST, "> ./$_[1]" or die; #dst file after rebundant.
+%ha = ();
+while (<SRC>) {
+  chomp;
+  $ha{$_} = 1;
+}
+
+@clk_group= sort keys %ha;
+foreach  (@clk_group) {
+ print DST "$_\n";
+}
+
+close SRC;
+close DST;
+}
+

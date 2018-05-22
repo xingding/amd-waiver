@@ -1,0 +1,125 @@
+P1   CAS_0001   'pin_or_port' fans out to inconsistent user case analysis settings.
+P1   CAS_0002   Pin/Port 'pin' is driven by conflicting values. A value of zero will be used. 
+P1   CAS_0003   Pin/Port 'pin' propagated value conflicts with a user case analysis value.
+P1   CAS_0004   Bidirectional pin 'pin' has conflicting values on the load and driver side.
+P1   CGR_0001   Clocks generated from the same master clock 'master_clock' are declared as asynchronous.
+P1   CGR_0002   Clock 'clock1' is generated directly or indirectly from the clock 'clock2', but they are declared as asynchronous.
+P1   CGR_0003   Clock 'clock1' and clock 'clock2' are defined asynchronous with each other. There are clocks generated directly or indirectly from these clocks which are not defined as asynchronous.
+P1   CGR_0004   Clock 'clock1' is missing an asynchronous definition with at least one clock in each of the following asynchronous clock pairs
+P1   CGR_0005   Clock 'clock1' is generated directly or indirectly from the clock 'clock2', but they are declared as physically exclusive.
+P1   CGR_0009   Clocks 'clock1' and 'clock2' have valid timing paths between them but their common base period is more than the limit times the clock period.
+P1   CLK_0003   Generated clock 'clock' is not expanded because it has no clock reaching its master source 'pin'.
+P1   CLK_0006   Clock 'clock' source 'source' has a logic constant or case value.
+P1   CLK_0007   Generated clock 'clock' master source 'source' has a logic constant or case value.
+P1   CLK_0009   Generated clock 'clock' is not expanded because master clock 'master_clock' does not reach its master source 'pin'.
+P1   CLK_0010   Generated clock 'clock' is not expanded because its master clock 'master_clock' is not expanded.
+P1   CLK_0011   Generated clock 'clock' is not expanded because potential master clock 'master_clock' is not expanded.
+P1   CLK_0013   Generated clock 'clock' ignores multiple rising edges of master clock 'master_clock' due to a user-defined duty cycle in the generated clock definition.
+P1   CLK_0016   Generated clock 'clock' has no source latency path from its master clock 'master_clock'.
+P1   CLK_0017   The master source of generated clock 'clock' is not in the fanin of the generated clock source pin.
+P1   CLK_0020   Generated clock 'clock' has edge relationships with its master clock 'master_clock' that can not be satisfied.  Only paths with 'path_sense' sense exist from the master clock to source pin 'source_pin'. A 'expected_sense' sense is expected.
+P1   CLK_0021   Clock 'clock' is not used in this scenario.
+P1   CLK_0027   At 'pin', there is a conflicting set_clock_sense for 'clock'.
+P1   CLK_0032   Non-combinational generated clock 'clock' has a source identical to its master source object.
+P1   CLK_0034   Clock 'clock' has propagated latency during pre-layout analysis.
+P1   CLK_0036     Generated clock 'clock' has incorrect waveform inversion
+P1   CLK_0041   The clock has a loop in the source latency network.
+P1   EXC_0001   A 'exception' has conflicting 'rise_or_fall' and 'to_rise_or_fall' options specified.
+P1   EXC_0005   A 'exception' will create start and/or end points, breaking other timing paths through those pins.
+P1   EXC_0008   A 'exception' is forcing start and/or end points, breaking the clock network.
+P1   LOOP_001   Arc from pin 'from_pin' to 'to_pin' is disabled due to combinational loop.
+P1   LOOP_002   Arc from pin'from_pin' to 'to_pin' belongs to a sequential loop
+P1   NTL_0003   Net 'net' has potentially invalid multiple strong drivers.
+P1   NTL_0005   Unresolved reference to 'reference_name'.
+P1   UNT_0001   Library 'library' has no units defined.
+P1   UNT_0002   Library 'library' has incomplete units defined.
+P2   CGR_0010   Clocks 'clock1' and 'clock2' might be interacting but their common base period is more than the limit times the clock period.
+P2   CLK_0004   Mismatch between generated clock definitions at 'pin' and potential master clocks.
+P2   CLK_0008   Generated clock 'clock' has paths from the source(s) of master clock 'master_clock' to generated clock source(s) with differing sequential depth.
+P2   CLK_0012   Generated clock 'clock' has non-unate sense for master clock 'master_clock' at its master source.
+P2   CLK_0015   Clock 'clock' is created on a hierarchical pin.
+P2   CLK_0018   Clock 'clock' has non-unate logic in the clock network.
+P2   CLK_0023   There are 'count' clocks on source 'source' with the same period and waveform.
+P2   CLK_0026   Clock 'clock' is used as data.  One or more sources of the clock fans out to a register data pin or to a constrained primary output or inout port.
+P2   CLK_0028   The master clock for generated clock 'clock' is ambiguous. There are multiple clocks on -source pin 'master_source'.
+P2   CLK_0029   The last edge shift value for generated clock 'clock' is not equal to the first edge shift.
+P2   CLK_0037     There are other clock sources in the clock latency path from the source(s) of master clock 'master_clock' to the source(s) of generated clock 'gen_clock'
+P2   CLK_0040  The clocks 'clock1' and 'clock2' have a conflicting clock definition on the same net
+P2   DES_0001   Register clock pin 'pin' has no clock signal
+P2   DES_0003   The register clock pin 'pin' that is part of a generated clock source latency path does not receive a valid clock signal
+P2   EXC_0002   A 'exception' has some invalid start and/or end points specified.
+P2   EXC_0003   All -from objects for a 'exception' are invalid path startpoints.
+P2   EXC_0004   All -to objects for a 'exception' are invalid.
+P2   EXC_0014   A 'exception' is fully overridden by other exceptions.
+P2   EXC_0015   A 'exception' is partially overridden by other exceptions.
+P2   HIER_001   Hierarchical pin 'pin' has constraints defined on it.
+P3   CGR_0006   Clock 'clock1' and clock 'clock2' are defined physically exclusive with each other. There are clocks generated from these clocks which are not defined as physically exclusive.
+P3   CGR_0007   Multiple clocks are defined at pin/port 'pin_port', but these clocks are not defined as exclusive/asynchronous.
+P3   CSTR-006 set_clock_groups overwrote existing false paths
+P3   CTR_0002   Clock 'clock' has incomplete clock transition values.
+P3   EXC_0006   A 'exception' does not specify any valid paths.
+P3   EXC_0007   A 'exception' has incomplete values.
+P3   EXC_0010   A 'exception' has no corresponding min_delay for a max_delay exception.
+P3   EXC_0011   A 'exception' has no corresponding max_delay for a min_delay exception.
+P3   EXC_0012   A 'exception' has incomplete values.
+P3   EXC_0013   A 'exception' has incomplete values.
+P3   NTL_0002   Net 'net' has both strong and three-state drivers.
+P3   UNC_0001   Input/Output delays are defined relative to clock 'clock'. This clock has incomplete uncertainty values required for those external delays even though its source ports/pins have more complete uncertainties defined on them.
+P3   UNC_0002   Clock uncertainty is specified on 'object_type' 'object', but that object is not in any clock's network
+P3   UNC_0003   Clock uncertainty is incomplete or incorrect between two interacting clocks 'clock1' and 'clock2'
+P4   CAP_0001   Output/inout port 'port' has zero or incomplete capacitance values.
+P4   CAP_0002   Port 'port' has negative 'pin_or_wire' capacitance values.
+P4   CAP_0003   Port 'port' has inconsistent 'pin_or_wire' capacitance values.
+P4   CGR_0008   Multiple clocks defined at pin/port 'pin_port' have false path set between them.  For accurate signal integrity results use 'set_clock_groups -physically_exclusive'.
+P4   CLK_0001   Clock 'clock' has 'count' source(s) on inout ports
+P4   CLK_0002   Generated clock 'clock' has 'count' source(s) on input or inout ports
+P4   CLK_0019   Design has both propagated and ideal non-virtual clocks.
+P4   CLK_0030   There is reconvergent logic in the network for clock 'clock'.
+P4   CLK_0031   The waveform for clock 'clock' has more than two edges.
+P4   CLK_0033   Clock 'clock' has ideal latency during post-layout analysis.
+P4   CLK_0035   No clock-gating check inferred for the instance: 'cell' clock pin: 'clk_pin' enable pin: 'enable_pin' lib cell: 'lib_cell'
+P4   CNL_0001   Inconsistent clock network latency values on 'object_type' 'object'.
+P4   CNL_0002   Input/Output delays are defined relative to clock 'clock'. This clock has incomplete network latency values required for those external delays even though its source ports/pins have more complete network latencies defined on them.
+P4   CNL_0003   Clock network latency is specified on 'object_type' 'object', but that object is not in any clock network
+P4   CNL_0004   Clock network latency is specified on 'object_type' 'object' with respect to clock 'clock', but that object is not in the clock's network
+P4   CSL_0001   Inconsistent clock source latency values on 'object_type' 'object'.
+P4   CSL_0002   Input/Output delays are defined relative to clock 'clock'. This clock has incomplete source latency values required for those external delays even though its source ports/pins have more complete source latencies defined on them.
+P4   CSL_0003   Clock source latency is specified on 'object_type' 'object', but that object is not a clock source
+P4   CSL_0005   Generated clock 'clock' has source latency values less than that of master clock 'master_clock', considering the clock edge relationships.
+P4   CSL_0006   Clock source latency is specified on 'object_type' 'object' with respect to clock 'clock', but that object is not in the clock's network
+P4   CTR_0001   Clock 'clock' has inconsistent clock transition values.
+P4   CTR_0004   Virtual clock 'clock' has clock transition values.
+P4   CTR_0005   Clock 'clock' has no clock transition values in pre-layout.
+P4   DES_0002   Register clock pin 'pin' is disabled due to case values or disabled constraint arcs.
+P4   DRV_0002   Input/inout port 'port' has incomplete input transition, driving cell or drive resistance specified.
+P4   DRV_0004   Input or inout port 'port' has inconsistent drive resistance values.
+P4   DRV_0005   Input/inout port 'port' has inconsistent input transition values.
+P4   EXC_0009   Inconsistent 'exception'; min_delay must be less than max_delay.
+P4   EXD_0001   Input/inout port 'port' has no input delay specified.
+P4   EXD_0002   Input/inout port 'port' has no clock-related input delay specified.
+P4   EXD_0003   Output/inout port 'port' has no clock-related output delay specified.
+P4   EXD_0004   The 'input_or_output' delay on 'object_type' 'object' has incomplete values.
+P4   EXD_0007   No clock signals exist at reference pin 'reference_pin'  for 'input_or_output' delay on 'object_type' 'object'.
+P4   EXD_0008   The 'input_or_output' delay at pin 'object' is forcing a 'start_or_end' point that blocks paths through this pin
+P4   EXD_0009   The input delay at 'object_type' 'object' has values larger than 'max_percent'% of the relative clock's period.
+P4   EXD_0010   The output delay at 'object_type' 'object' has values larger than 'max_percent'% of the relative clock's period.
+P4   EXD_0011   Some ports have no input delay or input delay without a relative clock.  A default clock will be assumed for such ports because the variable 'timing_input_port_default_clock' is set to 'true'.
+P4   EXD_0012   The input delay at 'object_type' 'object' has zero window for min and max values.
+P4   EXD_0013   The output delay at 'object_type' 'object' has inconsistent values.
+P4   NTL_0001   Output port 'port' is unbuffered.
+P4   NTL_0004   Net 'net' is a top-level feedthrough.
+P5   CLK_0005   Virtual clock 'clock' has the same name as a design object.
+P5   CLK_0014   Clock 'clock' is created on a pin instead of a port.
+P5   CLK_0024   Register Clock pin 'pin' has 'count' clocks.
+P5   CMP_0001   Command ''command'' is unsupported by 'products'.  Command used in 'N' locations.
+P5   CMP_0002   Option '-'option'' of command ''command'' is unsupported by 'products'. Option used in 'N' locations.
+P5   CMP_0003   Application variable, sh_command_abbrev_mode is not set to the recommended value of 'Command-Line-Only'.
+P5   CNL_0005   For clock 'clock' all register clock pins in the fanout of 'object' have no clock latency set.
+P5   CSL_0004   Generated clock 'clock' master clock 'master_clock'is not propagated and has zero or incomplete source latency values.
+P5   CTR_0003   Propagated clock 'clock' has ideal clock transition values.
+P5   CTR_0006   Clock 'clock' has clock transition values in post-layout.
+P5   DRV_0001   Input/inout port 'port' has no input transition, driving cell or drive resistance specified.
+P5   DRV_0003   Input/inout port 'port' has input transition or drive resistance instead of set_driving_cell.
+P5   NTL_0006   Net 'net' has high fanout; fanout count is 'fanout_count'.
+P5   PRF_0001   There are 'count' clock pins with more than 'limit' clocks.
+P5   UNT_0003   The libraries used by this design have inconsistent units.
